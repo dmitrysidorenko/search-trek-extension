@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Search trek extension",
+  "version": "0.0.1",
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "background/background.js"
+    ]
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/*",
+        "https://www.google.com.ua/*"
+      ],
+      "css": [],
+      "js": [
+        "content/content.js"
+      ]
+    }
+  ]
+}
