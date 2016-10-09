@@ -2,25 +2,27 @@
   "manifest_version": 2,
   "name": "Search trek extension",
   "version": "0.0.1",
+  "browser_action": {
+    "default_icon": "inactive.png"/*,
+    "default_popup": "credentials.html"*/
+  },
   "background": {
     "persistent": false,
     "scripts": [
+      "firebase.js",
       "background/background.js"
     ]
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "identity"
   ],
-  "content_scripts": [
-    {
-      "matches": [
-        "https://www.google.com/*",
-        "https://www.google.com.ua/*"
-      ],
-      "css": [],
-      "js": [
-        "content/content.js"
-      ]
-    }
-  ]
+  "oauth2": {
+    "client_id": "612488784459-np83c0almt3s1ftpfg3kter2afpufttq.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  },
+  "content_security_policy": "script-src 'self' https://*.firebase.com https://*.firebaseio.com; object-src 'self'"
 }
