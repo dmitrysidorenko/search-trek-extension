@@ -3,13 +3,11 @@
   "name": "Search trek extension",
   "version": "0.0.1",
   "browser_action": {
-    "default_icon": "inactive.png"/*,
-    "default_popup": "credentials.html"*/
+    "default_icon": "inactive.png"
   },
   "background": {
     "persistent": false,
     "scripts": [
-      "firebase.js",
       "background/background.js"
     ]
   },
