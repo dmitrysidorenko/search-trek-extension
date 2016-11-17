@@ -1,6 +1,6 @@
 var replaced = {};
 var activeTabIds = [undefined, undefined];
-var initActive = localStorage.getItem('active') === 'false';
+var initActive = localStorage.getItem('active') === 'true';
 var active = false;
 
 function init() {
@@ -16,7 +16,7 @@ function init() {
 
         console.log(tabId, tab.url, Date.now(), opener, activeTabIds.join(","));
 
-      fetch('http://localhost:8080/api/log',
+      fetch('http://localhost:8888/api/log',
         {
           //mode: 'no-cors',
           method: 'POST',
@@ -69,6 +69,7 @@ function init() {
   });
 
   function setActive(bool) {
+    console.log('setting active flag to ' + bool)
     active = bool;
     localStorage.setItem('active', active);
     const icon = !active ? 'inactive.png' : 'active.png';
